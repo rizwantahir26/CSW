@@ -14,9 +14,9 @@ def main():
     print("Cisco Packet Tracer Simulation")
     
     if setup.Required():
-        run_setupwiz()
+        setup.setupwiz()
     else:
-        load_setup()
+        setup.loadconfig()
     
     print("Please authenticate to access the CLI.")
     username = input("Username: ")
