@@ -1,4 +1,4 @@
-from csw import Authentication, CLI, Config, Interface, VLAN
+from csw import Setup, Authentication, CLI, Config, Interface, VLAN
 import getpass
 
 def main():
@@ -8,9 +8,16 @@ def main():
     interface = Interface()
     vlan = VLAN()
     cli = CLI(config, interface, vlan)
+    setup = Setup()
 
     # Authenticate the user
     print("Cisco Packet Tracer Simulation")
+    
+    if setup.Required():
+        run_setupwiz()
+    else:
+        load_setup()
+    
     print("Please authenticate to access the CLI.")
     username = input("Username: ")
     password = getpass.getpass(prompt='Password: ')
